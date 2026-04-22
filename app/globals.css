@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Typography */
+  body {
+    @apply text-gray-900 antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Focus states for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-green-500 ring-offset-2;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better touch targets */
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply px-4 md:px-6 py-2.5 md:py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed min-h-12 md:min-h-auto;
+  }
+
+  .btn-secondary {
+    @apply px-4 md:px-6 py-2.5 md:py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition-colors duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed min-h-12 md:min-h-auto;
+  }
+
+  .btn-small {
+    @apply px-3 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200 active:scale-95;
+  }
+
+  /* Form inputs */
+  .input-base {
+    @apply w-full px-4 py-2.5 md:py-3 border border-gray-300 rounded-lg text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200 min-h-12 md:min-h-auto;
+  }
+
+  .input-sm {
+    @apply px-3 py-1.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors duration-200;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 transition-shadow duration-200 hover:shadow-md;
+  }
+
+  .card-compact {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200;
+  }
+
+  /* Stat cards */
+  .stat-card {
+    @apply bg-white rounded-xl p-4 md:p-6 shadow-sm border border-gray-200;
+  }
+
+  /* Status badge */
+  .badge {
+    @apply inline-block px-2.5 md:px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-medium;
+  }
+
+  /* Layout helpers */
+  .container-base {
+    @apply px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8;
+  }
+
+  .content-max-width {
+    @apply max-w-4xl mx-auto;
+  }
+
+  /* Responsive grid */
+  .grid-responsive {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6;
+  }
+
+  /* Section spacing */
+  .section-spacing {
+    @apply space-y-6 md:space-y-8;
+  }
+
+  /* Mobile-friendly divider */
+  .divider {
+    @apply border-t border-gray-200;
+  }
+
+  /* Loading skeleton */
+  .skeleton {
+    @apply bg-gray-200 rounded animate-pulse;
+  }
+
+  /* Better spacing for lists */
+  .list-spacing {
+    @apply divide-y divide-gray-100 space-y-0;
+  }
+}
+
+/* Utility animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.3s ease-out;
+  }
+
+  /* Remove number input spinners on mobile */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
